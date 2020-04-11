@@ -14,7 +14,6 @@ public final class RulesGenerator {
 
     private static Set<RuleDescriptor> buildRuleDescriptor(String rootPath, Class<?> clazz) {
         Set<RuleDescriptor> ruleDescriptors = new LinkedHashSet<>();
-
         while(clazz != null && !Object.class.equals(clazz)){
 
             for(Field field : clazz.getDeclaredFields()){
@@ -43,6 +42,8 @@ public final class RulesGenerator {
                     ruleDescriptors.addAll(buildRuleDescriptor(rootPath + name + "[{key}].", resolveGenericType(property.getGenericType(),1)));
                 }else if(Collection.class.isAssignableFrom(type)){
                     ruleDescriptors.addAll(buildRuleDescriptor(rootPath + name + "[{position}].", resolveGenericType(property.getGenericType(),0)));
+                }else if(type.isArray()){
+                    ruleDescriptors.addAll(buildRuleDescriptor(rootPath + name + "[{position}].", type.getComponentType()));
                 }else {
                     ruleDescriptors.addAll(buildRuleDescriptor( rootPath + name + ".", type));
                 }

@@ -58,6 +58,14 @@ public class PropertyMetaData {
         return hasValidations() || hasConstraints();
     }
 
+    public boolean isMethod(){
+        return property instanceof Method;
+    }
+
+    public boolean isField(){
+        return property instanceof Field;
+    }
+
     private Set<Annotation> findConstraints(Annotation[] annotations){
         return Arrays.stream(annotations).filter((ann -> isConstraintAnnotation(ann))).collect(Collectors.toSet());
     }

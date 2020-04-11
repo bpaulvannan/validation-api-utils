@@ -6,7 +6,6 @@ import bpv.utils.validationapi.rule.resolvers.ValidationCodeResolver;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -41,7 +40,7 @@ public class RulesGeneratorTest {
         RuleDescriptor minLeadsRule = assertAndGetRuleDescriptor(generatedRules, minLeads, true);
 
         assertValidationRule(bonusRule, bonus, Min.class);
-        assertValidationRule(minLeadsRule, minLeads, AssertTrue.class);
+        assertValidationRule(minLeadsRule, minLeads, "MinimumRequiredProjectLeads");
 
         assertPersonRules(generatedRules, employess);
         assertPersonRules(generatedRules, leaders);
@@ -62,11 +61,11 @@ public class RulesGeneratorTest {
         RuleDescriptor projectsRule = assertAndGetRuleDescriptor(generatedRules, projects, true);
 
         assertValidationRule(nameRule, name, NotNull.class);
-        assertValidationRule(ageRule, name, Min.class);
-        assertValidationRule(ageRule, name, Max.class);
-        assertValidationRule(salaryRule, name, Min.class);
+        assertValidationRule(ageRule, age, Min.class);
+        assertValidationRule(ageRule, age, Max.class);
+        assertValidationRule(salaryRule, salary, Min.class);
         assertNull(hobbyRule);
-        assertValidationRule(projectsRule, name, Max.class);
+        assertValidationRule(projectsRule, projects, Max.class);
 
         assertDepartmentRules(generatedRules, rootPath + "department.");
         assertProjectRules(generatedRules, rootPath + "projects[{position}].");
@@ -102,5 +101,10 @@ public class RulesGeneratorTest {
 
     private void assertValidationRule(RuleDescriptor ruleDescriptor, String path, Class<?> clazz){
         Assert.assertTrue( path + " " + clazz.getSimpleName() + "?", ruleDescriptor.getRules().contains(new ValidationRule(ValidationCodeResolver.resolve(clazz))));
+    }
+
+    private void assertValidationRule(RuleDescriptor ruleDescriptor, String path, String constraintName){
+        String code = ValidationCodeResolver.resolve(constraintName);
+        Assert.assertTrue( path + " " + code + " ?", ruleDescriptor.getRules().contains(new ValidationRule(code)));
     }
 }

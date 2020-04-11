@@ -13,9 +13,9 @@ public final class ValidationCodeResolver {
     public static String resolve(Annotation constraint){
         return resolve(constraint.annotationType());
     }
+
     public static String resolve(Class<?> clazz){
-        String[] nameParts = StringUtils.splitByCharacterTypeCamelCase(clazz.getSimpleName());
-        String code = StringUtils.upperCase(StringUtils.joinWith("_", nameParts));
+        String code = resolve(clazz.getSimpleName());
         if(clazz.isAnnotationPresent(Constraint.class)){
             try{
                 return ValidationErrorCodes.valueOf(code).value();
@@ -26,5 +26,11 @@ public final class ValidationCodeResolver {
             return "INVALID_" + code;
         }
         return null;
+    }
+
+    public static String resolve(String constraintName){
+        String[] nameParts = StringUtils.splitByCharacterTypeCamelCase(constraintName);
+        String code = StringUtils.upperCase(StringUtils.joinWith("_", nameParts));
+        return code;
     }
 }

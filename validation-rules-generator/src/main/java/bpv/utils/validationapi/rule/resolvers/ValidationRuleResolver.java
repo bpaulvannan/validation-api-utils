@@ -1,9 +1,10 @@
 package bpv.utils.validationapi.rule.resolvers;
 
 import bpv.utils.validationapi.rule.ValidationRule;
-import bpv.utils.validationapi.rule.builders.ValidationRuleBuilder;
 import bpv.utils.validationapi.rule.data.PropertyMetaData;
 
+import javax.validation.constraints.AssertFalse;
+import javax.validation.constraints.AssertTrue;
 import java.lang.annotation.Annotation;
 import java.util.*;
 
@@ -21,12 +22,27 @@ public class ValidationRuleResolver {
         for(Annotation constraint : property.getConstraintAnnotations()){
             ValidationRule rule = VALIDATION_RULE_CACHE.get(constraint);
             if(rule == null){
-                rule = ValidationRuleBuilder.build(constraint);
+                rule = buildValidationRule(property, constraint);
                 VALIDATION_RULE_CACHE.put(constraint, rule);
             }
             rules.add(rule);
         }
 
+    }
+
+    private static ValidationRule buildValidationRule(PropertyMetaData property, Annotation constraint){
+        String code = null;
+        if(property.isMethod() && isAssertConstraint(constraint)){
+            code = ValidationCodeResolver.resolve(property.getName());
+        }else{
+            code = ValidationCodeResolver.resolve(constraint);
+        }
+        String desc = ValidationMessageResolver.resolve(constraint);
+        return new ValidationRule(code, desc);
+    }
+
+    private static boolean isAssertConstraint(Annotation constraint){
+        return constraint.annotationType().equals(AssertTrue.class) || constraint.annotationType().equals(AssertFalse.class);
     }
 
 

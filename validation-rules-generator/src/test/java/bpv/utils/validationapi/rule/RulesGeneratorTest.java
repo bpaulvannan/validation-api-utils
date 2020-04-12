@@ -1,5 +1,6 @@
 package bpv.utils.validationapi.rule;
 
+import bpv.utils.validationapi.data.Department;
 import bpv.utils.validationapi.data.Manager;
 import bpv.utils.validationapi.rule.resolvers.ValidationCodeResolver;
 import org.junit.Assert;
@@ -27,7 +28,8 @@ public class RulesGeneratorTest {
             logger.info("Path:" + ruleDescriptor.getPath());
             logger.info("------------------------------------------------");
             for(ValidationRule validation : ruleDescriptor.getRules()){
-                logger.info(validation.getCode() + " = " + validation.getDesc());
+                logger.info(validation.getCode() + " = " + validation.getDesc() + " Attributes::" + validation.getAttrs());
+
             }
             logger.info("------------------------------------------------\n");
         }

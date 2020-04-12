@@ -1,34 +1,27 @@
 package bpv.utils.validationapi.rule;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class RuleDescriptor {
-    private String path;
-    private Set<ValidationRule> rules;
-
-    public RuleDescriptor(){
-    }
+    private final String path;
+    private final Set<ValidationRule> rules = new HashSet<>();
 
     public RuleDescriptor(String path){
         this.path = path;
     }
 
-
     public String getPath() {
         return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public Set<ValidationRule> getRules() {
         return rules;
     }
 
-    public void setRules(Set<ValidationRule> rules) {
-        this.rules = rules;
+    public void addRules(Set<ValidationRule> rules) {
+        this.rules.addAll(rules);
     }
 
     @Override

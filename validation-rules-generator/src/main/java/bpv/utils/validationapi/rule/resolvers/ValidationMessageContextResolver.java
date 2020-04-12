@@ -6,7 +6,7 @@ import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ValidationMessageResolver {
+public class ValidationMessageContextResolver {
 
     private static final MessageInterpolator MESSAGE_INTERPOLATOR = Validation.buildDefaultValidatorFactory().getMessageInterpolator();
     private static final Map<Annotation,ValidationMessageInterpolatorContext> MESSAGE_INTERPOLATOR_CONTEXT = new HashMap<Annotation, ValidationMessageInterpolatorContext>();
@@ -20,10 +20,8 @@ public class ValidationMessageResolver {
         return context;
     }
 
-    public static String resolve(Annotation constraint){
-        ValidationMessageInterpolatorContext context = buildMessageInterpolationContext(constraint);
-        String key = (String)context.getConstraintDescriptor().getAttributes().get(ValidationDescriptor.ATTR_MESSAGE);
-        return MESSAGE_INTERPOLATOR.interpolate(key,context);
+    public static ValidationMessageInterpolatorContext resolve(Annotation constraint){
+        return buildMessageInterpolationContext(constraint);
     }
 
 }

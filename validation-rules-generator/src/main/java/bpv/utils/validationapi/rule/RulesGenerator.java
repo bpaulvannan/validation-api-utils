@@ -35,29 +35,34 @@ public final class RulesGenerator {
 
     private static void processProperty(Set<RuleDescriptor> ruleDescriptors, String rootPath, PropertyMetaData property){
         if(property.canProcessProperty()){
-            String name = property.getName();
+            String path = rootPath + property.getName();
             Class<?> type = property.getType();
             if(property.hasValidations()){
                 if(Map.class.isAssignableFrom(type)){
-                    ruleDescriptors.addAll(buildRuleDescriptor(rootPath + name + "[{key}].", resolveGenericType(property.getGenericType(),1)));
+                    ruleDescriptors.addAll(buildRuleDescriptor(path + "[{key}].", resolveGenericType(property.getGenericType(),1)));
                 }else if(Collection.class.isAssignableFrom(type)){
-                    ruleDescriptors.addAll(buildRuleDescriptor(rootPath + name + "[{position}].", resolveGenericType(property.getGenericType(),0)));
+                    ruleDescriptors.addAll(buildRuleDescriptor(path + "[{position}].", resolveGenericType(property.getGenericType(),0)));
                 }else if(type.isArray()){
-                    ruleDescriptors.addAll(buildRuleDescriptor(rootPath + name + "[{position}].", type.getComponentType()));
+                    ruleDescriptors.addAll(buildRuleDescriptor(path + "[{position}].", type.getComponentType()));
                 }else {
-                    ruleDescriptors.addAll(buildRuleDescriptor( rootPath + name + ".", type));
+                    ruleDescriptors.addAll(buildRuleDescriptor( path + ".", type));
                 }
             }
             if(property.hasConstraints()){
                 Set<ValidationRule> validationRules = ValidationRuleResolver.resolve(property);
                 if(validationRules.size() > 0){
-                    RuleDescriptor rule = new RuleDescriptor();
-                    rule.setPath(rootPath + name);
-                    rule.setRules(validationRules);
+                    RuleDescriptor rule = getOrCreateRuleDescriptor(ruleDescriptors, path);
+                    rule.addRules(validationRules);
                     ruleDescriptors.add(rule);
                 }
             }
         }
+    }
+
+    private static RuleDescriptor getOrCreateRuleDescriptor(Set<RuleDescriptor> ruleDescriptors, String path){
+        final RuleDescriptor ruleToFind = new RuleDescriptor(path);
+        RuleDescriptor result = ruleDescriptors.stream().filter(ruleToFind::equals).findAny().orElse(new RuleDescriptor(path));
+        return result;
     }
 
     private static Class<?> resolveGenericType(Type type, int position){

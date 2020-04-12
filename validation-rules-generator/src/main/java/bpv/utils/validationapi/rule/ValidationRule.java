@@ -1,10 +1,13 @@
 package bpv.utils.validationapi.rule;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class ValidationRule {
     private final String code;
     private final String desc;
+    private final Set<ValidationAttribute> attrs = new HashSet<>();
 
     public ValidationRule(String code) {
         this(code, null);
@@ -20,6 +23,14 @@ public class ValidationRule {
 
     public String getDesc() {
         return desc;
+    }
+
+    public Set<ValidationAttribute> getAttrs() {
+        return attrs;
+    }
+
+    public void addAttribute(String name, Object value){
+        attrs.add(new ValidationAttribute(name, value));
     }
 
     @Override

@@ -55,7 +55,18 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
     @Override
     public Map<String, Object> getAttributes() {
         Map<String,Object> attrs = new HashMap<String,Object>();
+        attrs.put(ATTR_MESSAGE, attributes.get(ATTR_MESSAGE));
+        return attrs;
+    }
+
+    public String getMessageKey(){
+        return (String)attributes.get(ATTR_MESSAGE);
+    }
+
+    public Map<String, Object> getMessageParams() {
+        Map<String,Object> attrs = new HashMap<String,Object>();
         attrs.putAll(attributes);
+        attrs.remove(ATTR_MESSAGE);
         attrs.remove(ATTR_GROUPS);
         attrs.remove(ATTR_PAYLOAD);
         attrs.remove(ATTR_VALIDATED_BY);

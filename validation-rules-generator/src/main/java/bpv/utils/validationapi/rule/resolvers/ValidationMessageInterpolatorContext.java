@@ -7,7 +7,7 @@ import java.lang.annotation.Annotation;
 
 public class ValidationMessageInterpolatorContext implements MessageInterpolator.Context {
 
-    private final ConstraintDescriptor<? extends Annotation> constraintDescriptor;
+    private final ValidationDescriptor<? extends Annotation> constraintDescriptor;
 
     private ValidationMessageInterpolatorContext(Annotation constraint){
         if(constraint.annotationType().isAnnotationPresent(Constraint.class)){
@@ -18,7 +18,7 @@ public class ValidationMessageInterpolatorContext implements MessageInterpolator
     }
 
     @Override
-    public ConstraintDescriptor<?> getConstraintDescriptor() {
+    public ValidationDescriptor<?> getConstraintDescriptor() {
         return constraintDescriptor;
     }
 

@@ -27,8 +27,8 @@ public class Manager extends Person {
     @Valid
     private Map<String,Person> leaderByGroup;
 
-    @AssertTrue(message = "required one project lead for every 5 employees")
-    public boolean isMinimumRequiredProjectLeads(){
+    @AssertTrue(message = "{MinProjectLeads}")
+    public boolean isMinProjectLeads(){
         //some logic to check minimum leads for total managed employess
         return true;
     }

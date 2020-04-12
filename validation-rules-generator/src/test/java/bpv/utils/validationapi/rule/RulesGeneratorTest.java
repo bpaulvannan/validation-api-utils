@@ -1,10 +1,11 @@
 package bpv.utils.validationapi.rule;
 
 import bpv.utils.validationapi.data.Manager;
-import bpv.utils.validationapi.data.Person;
 import bpv.utils.validationapi.rule.resolvers.ValidationCodeResolver;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -16,9 +17,20 @@ import static org.junit.Assert.assertNull;
 
 public class RulesGeneratorTest {
 
+    Logger logger = LoggerFactory.getLogger(getClass());
+
     @Test
     public void printGeneratedRules(){
-        System.out.println(RulesGenerator.generate(Person.class));
+        Set<RuleDescriptor> generatedRules = RulesGenerator.generate(Manager.class);
+        for(RuleDescriptor ruleDescriptor : generatedRules){
+            logger.info("------------------------------------------------");
+            logger.info("Path:" + ruleDescriptor.getPath());
+            logger.info("------------------------------------------------");
+            for(ValidationRule validation : ruleDescriptor.getRules()){
+                logger.info(validation.getCode() + " = " + validation.getDesc());
+            }
+            logger.info("------------------------------------------------\n");
+        }
     }
 
     @Test
@@ -34,13 +46,13 @@ public class RulesGeneratorTest {
         String employess = rootPath + "employees[{position}].";
         String leaders = rootPath + "leaderByGroup[{key}].";
         String bonus = rootPath + "bonus";
-        String minLeads = rootPath + "minimumRequiredProjectLeads";
+        String minLeads = rootPath + "minProjectLeads";
 
         RuleDescriptor bonusRule = assertAndGetRuleDescriptor(generatedRules, bonus, true);
         RuleDescriptor minLeadsRule = assertAndGetRuleDescriptor(generatedRules, minLeads, true);
 
         assertValidationRule(bonusRule, bonus, Min.class);
-        assertValidationRule(minLeadsRule, minLeads, "MinimumRequiredProjectLeads");
+        assertValidationRule(minLeadsRule, minLeads, "MinProjectLeads");
 
         assertPersonRules(generatedRules, employess);
         assertPersonRules(generatedRules, leaders);

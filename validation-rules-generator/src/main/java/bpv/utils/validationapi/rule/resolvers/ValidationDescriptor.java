@@ -23,13 +23,12 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
     private Map<String,Object> attributes;
 
 
-    private ValidationDescriptor(T constraint){
+    public ValidationDescriptor(T constraint){
         if(constraint.annotationType().isAnnotationPresent(Constraint.class)){
             this.constraint = constraint;
             this.attributes = resolveAttributes(constraint);
-        }else{
-            throw new IllegalArgumentException("Validation constraint is required, but provided " + constraint.annotationType().getName());
         }
+        throw new IllegalArgumentException("Validation constraint is required, but provided " + constraint.annotationType().getName());
     }
 
     @Override
@@ -96,12 +95,5 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
             tmpAttributes.put(attrName, attrValue);
         }
         return tmpAttributes;
-    }
-
-    static ValidationDescriptor fromConstraint(Annotation annotation){
-        if(annotation.annotationType().isAnnotationPresent(Constraint.class)){
-            return new ValidationDescriptor(annotation);
-        }
-        return null;
     }
 }

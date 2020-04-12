@@ -1,8 +1,8 @@
 package bpv.utils.validationapi.rule;
 
-import bpv.utils.validationapi.data.Department;
 import bpv.utils.validationapi.data.Manager;
 import bpv.utils.validationapi.rule.resolvers.ValidationCodeResolver;
+import bpv.utils.validationapi.rule.resolvers.ValidationCodes;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -25,11 +25,12 @@ public class RulesGeneratorTest {
         Set<RuleDescriptor> generatedRules = RulesGenerator.generate(Manager.class);
         for(RuleDescriptor ruleDescriptor : generatedRules){
             logger.info("------------------------------------------------");
-            logger.info("Path:" + ruleDescriptor.getPath());
-            logger.info("------------------------------------------------");
+            logger.info("Path   : " + ruleDescriptor.getPath());
             for(ValidationRule validation : ruleDescriptor.getRules()){
-                logger.info(validation.getCode() + " = " + validation.getDesc() + " Attributes::" + validation.getAttrs());
-
+                logger.info("------------------------------------------------");
+                logger.info("Code   : " + validation.getCode());
+                logger.info("Message: " + validation.getMessage());
+                logger.info("Params : " + validation.getParams());
             }
             logger.info("------------------------------------------------\n");
         }
@@ -54,7 +55,7 @@ public class RulesGeneratorTest {
         RuleDescriptor minLeadsRule = assertAndGetRuleDescriptor(generatedRules, minLeads, true);
 
         assertValidationRule(bonusRule, bonus, Min.class);
-        assertValidationRule(minLeadsRule, minLeads, "MinProjectLeads");
+        assertValidationRule(minLeadsRule, minLeads, "MIN_PROJECT_LEADS");
 
         assertPersonRules(generatedRules, employess);
         assertPersonRules(generatedRules, leaders);
@@ -118,7 +119,7 @@ public class RulesGeneratorTest {
     }
 
     private void assertValidationRule(RuleDescriptor ruleDescriptor, String path, String constraintName){
-        String code = ValidationCodeResolver.resolve(constraintName);
+        String code = ValidationCodes.toValue(constraintName);
         Assert.assertTrue( path + " " + code + " ?", ruleDescriptor.getRules().contains(new ValidationRule(code)));
     }
 }

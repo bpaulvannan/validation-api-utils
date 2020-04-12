@@ -6,38 +6,38 @@ import java.util.Set;
 
 public class ValidationRule {
     private final String code;
-    private final String desc;
-    private final Set<ValidationAttribute> attrs = new HashSet<>();
+    private final String message;
+    private final Set<ValidationAttribute> params = new HashSet<>();
 
     public ValidationRule(String code) {
         this(code, null);
     }
-    public ValidationRule(String code, String desc){
+    public ValidationRule(String code, String message){
         this.code = code;
-        this.desc = desc;
+        this.message = message;
     }
 
     public String getCode() {
         return code;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getMessage() {
+        return message;
     }
 
-    public Set<ValidationAttribute> getAttrs() {
-        return attrs;
+    public Set<ValidationAttribute> getParams() {
+        return params;
     }
 
-    public void addAttribute(String name, Object value){
-        attrs.add(new ValidationAttribute(name, value));
+    public void addParam(String name, Object value){
+        params.add(new ValidationAttribute(name, value));
     }
 
     @Override
     public String toString() {
         return "{" +
                 "code='" + code + '\'' +
-                ", desc='" + desc + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 

@@ -20,7 +20,7 @@ public class ValidationRuleBuilder {
 
     private static String getCode(PropertyMetaData property, Annotation constraint){
         if(property.isMethod() && isAssertConstraint(constraint)){
-            return ValidationCodeResolver.resolve(property.getName());
+            return ValidationCodeResolver.resolve(property);
         }else{
             return ValidationCodeResolver.resolve(constraint);
         }
@@ -28,16 +28,16 @@ public class ValidationRuleBuilder {
 
     public static ValidationRule build(PropertyMetaData property, Annotation constraint){
 
-        ValidationMessageInterpolatorContext context = ValidationMessageContextResolver.resolve(constraint);
+        ValidationMessageContext context = ValidationMessageContextResolver.resolve(constraint);
         ValidationDescriptor descriptor = context.getConstraintDescriptor();
         String key = descriptor.getMessageKey();
 
 
         String code = getCode(property, constraint);
-        String desc = MESSAGE_INTERPOLATOR.interpolate(key, context);
-        ValidationRule rule = new ValidationRule(code, desc);
+        String message = MESSAGE_INTERPOLATOR.interpolate(key, context);
+        ValidationRule rule = new ValidationRule(code, message);
         for(Map.Entry<String,Object> entry : ((Map<String,Object>)descriptor.getMessageParams()).entrySet()){
-            rule.addAttribute(entry.getKey(), entry.getValue());
+            rule.addParam(entry.getKey(), entry.getValue());
         }
 
         return rule;

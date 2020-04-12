@@ -8,11 +8,12 @@ public class ValidationMessageContext implements MessageInterpolator.Context {
 
     private final ValidationDescriptor<? extends Annotation> constraintDescriptor;
 
-    public ValidationMessageContext(Annotation constraint){
+    ValidationMessageContext(Annotation constraint){
         if(constraint.annotationType().isAnnotationPresent(Constraint.class)){
             constraintDescriptor = new ValidationDescriptor(constraint);
+        }else{
+            throw new IllegalArgumentException("Validation constraint is required, but provided " + constraint.annotationType().getName());
         }
-        throw new IllegalArgumentException("Validation constraint is required, but provided " + constraint.annotationType().getName());
     }
 
     @Override

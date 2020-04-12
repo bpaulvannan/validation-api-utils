@@ -23,12 +23,13 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
     private Map<String,Object> attributes;
 
 
-    public ValidationDescriptor(T constraint){
+    ValidationDescriptor(T constraint){
         if(constraint.annotationType().isAnnotationPresent(Constraint.class)){
             this.constraint = constraint;
             this.attributes = resolveAttributes(constraint);
+        }else{
+            throw new IllegalArgumentException("Validation constraint is required, but provided " + constraint.annotationType().getName());
         }
-        throw new IllegalArgumentException("Validation constraint is required, but provided " + constraint.annotationType().getName());
     }
 
     @Override

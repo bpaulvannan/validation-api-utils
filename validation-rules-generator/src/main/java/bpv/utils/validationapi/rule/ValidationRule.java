@@ -7,7 +7,7 @@ import java.util.Set;
 public class ValidationRule {
     private final String code;
     private final String message;
-    private final Set<ValidationAttribute> params = new HashSet<>();
+    private final Set<MessageParam> params = new HashSet<>();
 
     public ValidationRule(String code) {
         this(code, null);
@@ -25,12 +25,12 @@ public class ValidationRule {
         return message;
     }
 
-    public Set<ValidationAttribute> getParams() {
+    public Set<MessageParam> getParams() {
         return params;
     }
 
     public void addParam(String name, Object value){
-        params.add(new ValidationAttribute(name, value));
+        params.add(new MessageParam(name, value));
     }
 
     @Override

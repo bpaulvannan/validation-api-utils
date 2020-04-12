@@ -2,10 +2,10 @@ package bpv.utils.validationapi.rule;
 
 import java.util.Objects;
 
-public class ValidationAttribute {
+public class MessageParam {
     private final String name;
     private final Object value;
-    public ValidationAttribute(String name, Object value){
+    MessageParam(String name, Object value){
         this.name = name;
         this.value = value;
     }
@@ -21,7 +21,7 @@ public class ValidationAttribute {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ValidationAttribute that = (ValidationAttribute) o;
+        MessageParam that = (MessageParam) o;
         return Objects.equals(name, that.name);
     }
 

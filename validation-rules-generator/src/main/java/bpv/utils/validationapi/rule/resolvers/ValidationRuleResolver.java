@@ -1,6 +1,6 @@
 package bpv.utils.validationapi.rule.resolvers;
 
-import bpv.utils.validationapi.rule.ValidationRule;
+import bpv.utils.validationapi.rule.data.ValidationRule;
 import bpv.utils.validationapi.rule.data.PropertyMetaData;
 
 import java.lang.annotation.Annotation;

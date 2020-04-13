@@ -1,6 +1,8 @@
 package bpv.utils.validationapi.rule;
 
 import bpv.utils.validationapi.rule.data.PropertyMetaData;
+import bpv.utils.validationapi.rule.data.RuleDescriptor;
+import bpv.utils.validationapi.rule.data.ValidationRule;
 import bpv.utils.validationapi.rule.resolvers.ValidationRuleResolver;
 
 import java.lang.reflect.*;

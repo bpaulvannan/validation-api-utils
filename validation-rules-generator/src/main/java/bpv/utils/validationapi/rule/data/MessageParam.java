@@ -1,4 +1,4 @@
-package bpv.utils.validationapi.rule;
+package bpv.utils.validationapi.rule.data;
 
 import java.util.Objects;
 

@@ -1,6 +1,8 @@
 package bpv.utils.validationapi.rule;
 
 import bpv.utils.validationapi.data.Manager;
+import bpv.utils.validationapi.rule.data.RuleDescriptor;
+import bpv.utils.validationapi.rule.data.ValidationRule;
 import bpv.utils.validationapi.rule.resolvers.ValidationCodeResolver;
 import bpv.utils.validationapi.rule.resolvers.ValidationCodes;
 import org.junit.Assert;

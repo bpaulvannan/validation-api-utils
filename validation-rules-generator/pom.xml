@@ -9,18 +9,12 @@
         <version>1.0.0</version>
     </parent>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
     <groupId>bpv.utils</groupId>
     <artifactId>validation-rules-generator</artifactId>
-    <version>1.0.0</version>
+    <version>${project.version</version>
 
     <name>validation-rules-generator</name>
-    <description>Utility to generated list of validation rules from a class</description>
+    <description>Utility to generate list of validation rules from a class</description>
 
     <dependencies>
         <dependency>

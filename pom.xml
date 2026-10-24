@@ -29,9 +29,11 @@
                     <configuration>
                         <recipeArtifactCoordinates>
                             <recipeArtifactCoordinate>org.openrewrite.recipe:rewrite-migrate-java:3.42.1</recipeArtifactCoordinate>
+                            <recipeArtifactCoordinate>org.openrewrite.recipe:rewrite-testing-frameworks:3.42.1</recipeArtifactCoordinate>
                         </recipeArtifactCoordinates>
                         <activeRecipes>
                             <recipe>org.openrewrite.java.migrate.UpgradeToJava25</recipe>
+                            <recipe>org.openrewrite.java.testing.junit6.JUnit5to6Migration</recipe>
                         </activeRecipes>
                     </configuration>
                 </plugin>

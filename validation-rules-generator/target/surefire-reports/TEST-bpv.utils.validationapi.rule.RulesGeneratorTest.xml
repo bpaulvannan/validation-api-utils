@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bpv.utils.validationapi.rule.RulesGeneratorTest" time="0.347" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="25"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\paul\JavaProjects\validation-api-utils\validation-api-utils\validation-rules-generator\target\test-classes;C:\Users\paul\JavaProjects\validation-api-utils\validation-api-utils\validation-rules-generator\target\classes;C:\Users\paul\.m2\repository\org\slf4j\slf4j-simple\2.0.13\slf4j-simple-2.0.13.jar;C:\Users\paul\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\paul\.m2\repository\org\apache\commons\commons-lang3\3.15.0\commons-lang3-3.15.0.jar;C:\Users\paul\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.0\jakarta.validation-api-3.1.0.jar;C:\Users\paul\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\paul\.m2\repository\org\jboss\logging\jboss-logging\3.4.3.Final\jboss-logging-3.4.3.Final.jar;C:\Users\paul\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter\6.1.3\junit-jupiter-6.1.3.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.1.3\junit-jupiter-api-6.1.3.jar;C:\Users\paul\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\paul\.m2\repository\org\junit\platform\junit-platform-commons\6.1.3\junit-platform-commons-6.1.3.jar;C:\Users\paul\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\paul\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.1.3\junit-jupiter-params-6.1.3.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.1.3\junit-jupiter-engine-6.1.3.jar;C:\Users\paul\.m2\repository\org\junit\platform\junit-platform-engine\6.1.3\junit-platform-engine-6.1.3.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="user.country.format" value="DE"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="25"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\paul\AppData\Local\Temp\surefire3488628942494100696\surefirebooter-20261024135607220_3.jar C:\Users\paul\AppData\Local\Temp\surefire3488628942494100696 2026-10-24T13-56-06_276-jvmRun1 surefire-20261024135607220_1tmp surefire_0-20261024135607220_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\paul\JavaProjects\validation-api-utils\validation-api-utils\validation-rules-generator\target\test-classes;C:\Users\paul\JavaProjects\validation-api-utils\validation-api-utils\validation-rules-generator\target\classes;C:\Users\paul\.m2\repository\org\slf4j\slf4j-simple\2.0.13\slf4j-simple-2.0.13.jar;C:\Users\paul\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\paul\.m2\repository\org\apache\commons\commons-lang3\3.15.0\commons-lang3-3.15.0.jar;C:\Users\paul\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.0\jakarta.validation-api-3.1.0.jar;C:\Users\paul\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\paul\.m2\repository\org\jboss\logging\jboss-logging\3.4.3.Final\jboss-logging-3.4.3.Final.jar;C:\Users\paul\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter\6.1.3\junit-jupiter-6.1.3.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.1.3\junit-jupiter-api-6.1.3.jar;C:\Users\paul\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\paul\.m2\repository\org\junit\platform\junit-platform-commons\6.1.3\junit-platform-commons-6.1.3.jar;C:\Users\paul\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\paul\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.1.3\junit-jupiter-params-6.1.3.jar;C:\Users\paul\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.1.3\junit-jupiter-engine-6.1.3.jar;C:\Users\paul\.m2\repository\org\junit\platform\junit-platform-engine\6.1.3\junit-platform-engine-6.1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\paul"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-08-18"/>
+    <property name="java.home" value="C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\paul\JavaProjects\validation-api-utils\validation-api-utils\validation-rules-generator"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\paul\AppData\Local\Temp\surefire3488628942494100696\surefirebooter-20261024135607220_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="25.0.4.1+1-LTS"/>
+    <property name="user.name" value="paul"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-25.0.4.1+1"/>
+    <property name="localRepository" value="C:\Users\paul\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\paul\AppData\Local\Temp\"/>
+    <property name="java.version" value="25.0.4.1"/>
+    <property name="user.dir" value="C:\Users\paul\JavaProjects\validation-api-utils\validation-api-utils\validation-rules-generator"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\paul\AppData\Local\Microsoft\WindowsApps;C:\Users\paul\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\paul\AppData\Roaming\npm;C:\Users\paul\AppData\Local\Programs\@opencodedesktop;C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot\bin;C:\Users\paul\AppData\Local\Programs\Microsoft VS Code\bin\copilot-shim;c:\Users\paul\.vscode\extensions\vscjava.vscode-java-debug-0.60.0\bundled\scripts\noConfigScripts;c:\Users\paul\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;C:\Users\paul\AppData\Local\Programs\Microsoft VS Code\bin\copilot-shim;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="25.0.4.1+1-LTS"/>
+    <property name="stdin.encoding" value="Cp1252"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="69.0"/>
+  </properties>
+  <testcase name="printGeneratedRules" classname="bpv.utils.validationapi.rule.RulesGeneratorTest" time="0.227">
+    <system-err><![CDATA[[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : employees[{position}].department.name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:10}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : employees[{position}].name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : employees[{position}].age
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:20}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MAX
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be less than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:60}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : employees[{position}].salary
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:500}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : employees[{position}].projects[{position}].name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : employees[{position}].projects
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MAX
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be less than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:3}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : bonus
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:1000}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : leaderByGroup[{key}].department.name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:10}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : leaderByGroup[{key}].name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : leaderByGroup[{key}].age
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:20}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MAX
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be less than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:60}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : leaderByGroup[{key}].salary
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:500}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : leaderByGroup[{key}].projects[{position}].name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : leaderByGroup[{key}].projects
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MAX
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be less than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:3}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : minProjectLeads
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN_PROJECT_LEADS
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: {MinProjectLeads}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : department.name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:10}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : age
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:20}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MAX
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be less than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:60}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : salary
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MIN
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be greater than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:500}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : projects[{position}].name
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : REQUIRED
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must not be null
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : []
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Path   : projects
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Code   : MAX
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Message: must be less than or equal to {value}
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - Params : [{value:3}]
+[main] INFO bpv.utils.validationapi.rule.RulesGeneratorTest - ------------------------------------------------
+
+]]></system-err>
+  </testcase>
+  <testcase name="testGenerateRules" classname="bpv.utils.validationapi.rule.RulesGeneratorTest" time="0.041"/>
+</testsuite>

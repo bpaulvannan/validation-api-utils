@@ -1,0 +1,12 @@
+bpv\utils\validationapi\rule\resolvers\ValidationDescriptor.class
+bpv\utils\validationapi\rule\resolvers\ValidationMessageContext.class
+bpv\utils\validationapi\rule\resolvers\ValidationRuleResolver.class
+bpv\utils\validationapi\rule\resolvers\ValidationRuleBuilder.class
+bpv\utils\validationapi\rule\data\PropertyMetaData.class
+bpv\utils\validationapi\rule\resolvers\ValidationCodes.class
+bpv\utils\validationapi\rule\data\MessageParam.class
+bpv\utils\validationapi\rule\resolvers\ValidationCodeResolver.class
+bpv\utils\validationapi\rule\data\ValidationRule.class
+bpv\utils\validationapi\rule\resolvers\ValidationMessageContextResolver.class
+bpv\utils\validationapi\rule\data\RuleDescriptor.class
+bpv\utils\validationapi\rule\RulesGenerator.class

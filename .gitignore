@@ -1,0 +1,5 @@
+**/target
+**/target/**/**
+**/target/**/*
+**/target/maven-status.opencode
+**/target/surefire-reports

@@ -1,9 +1,11 @@
 package bpv.utils.validationapi.rule.resolvers;
 
-import javax.validation.Constraint;
-import javax.validation.ConstraintValidator;
-import javax.validation.Payload;
-import javax.validation.metadata.ConstraintDescriptor;
+import jakarta.validation.Constraint;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.Payload;
+import jakarta.validation.ConstraintTarget;
+import jakarta.validation.metadata.ConstraintDescriptor;
+import jakarta.validation.metadata.ValidateUnwrappedValue;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -38,6 +40,11 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
     }
 
     @Override
+    public String getMessageTemplate() {
+        return null;
+    }
+
+    @Override
     public Set<Class<?>> getGroups() {
         return (Set<Class<?>>) attributes.get(ATTR_GROUPS);
     }
@@ -45,6 +52,11 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
     @Override
     public Set<Class<? extends Payload>> getPayload() {
         return (Set<Class<? extends Payload>>) attributes.get(ATTR_PAYLOAD);
+    }
+
+    @Override
+    public ConstraintTarget getValidationAppliesTo() {
+        return null;
     }
 
     @Override
@@ -59,6 +71,27 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
         return attrs;
     }
 
+    @Override
+    public Set<ConstraintDescriptor<?>> getComposingConstraints() {
+        return null;
+    }
+
+    @Override
+    public boolean isReportAsSingleViolation() {
+        return false;
+    }
+
+    @Override
+    public ValidateUnwrappedValue getValueUnwrapping() {
+        return null;
+    }
+
+    @Override
+    @SuppressWarnings("rawtypes")
+    public Object unwrap(Class type) {
+        return null;
+    }
+
     public String getMessageKey(){
         return (String)attributes.get(ATTR_MESSAGE);
     }
@@ -71,16 +104,6 @@ public class ValidationDescriptor<T extends Annotation> implements ConstraintDes
         attrs.remove(ATTR_PAYLOAD);
         attrs.remove(ATTR_VALIDATED_BY);
         return attrs;
-    }
-
-    @Override
-    public Set<ConstraintDescriptor<?>> getComposingConstraints() {
-        return null;
-    }
-
-    @Override
-    public boolean isReportAsSingleViolation() {
-        return false;
     }
 
     private Map<String,Object> resolveAttributes(T annotation){

@@ -3,16 +3,16 @@ package bpv.utils.validationapi.rule.resolvers;
 import bpv.utils.validationapi.rule.data.ValidationRule;
 import bpv.utils.validationapi.rule.data.PropertyMetaData;
 
-import javax.validation.MessageInterpolator;
-import javax.validation.Validation;
-import javax.validation.constraints.AssertFalse;
-import javax.validation.constraints.AssertTrue;
+import jakarta.validation.MessageInterpolator;
+import jakarta.validation.constraints.AssertFalse;
+import jakarta.validation.constraints.AssertTrue;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import java.lang.annotation.Annotation;
 import java.util.Map;
 
 public class ValidationRuleBuilder {
 
-    private static final MessageInterpolator MESSAGE_INTERPOLATOR = Validation.buildDefaultValidatorFactory().getMessageInterpolator();
+    private static final MessageInterpolator MESSAGE_INTERPOLATOR = new ParameterMessageInterpolator();
 
     private static boolean isAssertConstraint(Annotation constraint){
         return constraint.annotationType().equals(AssertTrue.class) || constraint.annotationType().equals(AssertFalse.class);

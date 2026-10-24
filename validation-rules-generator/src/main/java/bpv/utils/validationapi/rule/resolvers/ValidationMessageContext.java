@@ -1,7 +1,7 @@
 package bpv.utils.validationapi.rule.resolvers;
 
-import javax.validation.Constraint;
-import javax.validation.MessageInterpolator;
+import jakarta.validation.Constraint;
+import jakarta.validation.MessageInterpolator;
 import java.lang.annotation.Annotation;
 
 public class ValidationMessageContext implements MessageInterpolator.Context {
@@ -23,6 +23,11 @@ public class ValidationMessageContext implements MessageInterpolator.Context {
 
     @Override
     public Object getValidatedValue() {
+        return null;
+    }
+
+    @Override
+    public <T> T unwrap(Class<T> type) {
         return null;
     }
 }

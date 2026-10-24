@@ -1,8 +1,8 @@
 package bpv.utils.validationapi.data;
 
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Test class with constraints at both field and getter method

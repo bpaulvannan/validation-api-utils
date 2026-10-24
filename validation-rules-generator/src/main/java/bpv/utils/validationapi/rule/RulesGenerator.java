@@ -68,8 +68,8 @@ public final class RulesGenerator {
     }
 
     private static Class<?> resolveGenericType(Type type, int position){
-        if(type instanceof ParameterizedType){
-            Type[] actualTypes = ((ParameterizedType) type).getActualTypeArguments();
+        if(type instanceof ParameterizedType parameterizedType){
+            Type[] actualTypes = parameterizedType.getActualTypeArguments();
             if(position >= 0 && actualTypes.length > position){
                 return (Class<?>) actualTypes[position];
             }

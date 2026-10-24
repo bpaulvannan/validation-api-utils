@@ -1,7 +1,7 @@
 package bpv.utils.validationapi.rule.data;
 
-import javax.validation.Constraint;
-import javax.validation.Valid;
+import jakarta.validation.Constraint;
+import jakarta.validation.Valid;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;

@@ -2,9 +2,9 @@ package bpv.utils.validationapi.data;
 
 
 
-import javax.validation.Valid;
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Min;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.Min;
 import java.util.Map;
 import java.util.Set;
 

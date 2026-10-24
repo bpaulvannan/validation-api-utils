@@ -1,6 +1,6 @@
 package bpv.utils.validationapi.data;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Simple test class

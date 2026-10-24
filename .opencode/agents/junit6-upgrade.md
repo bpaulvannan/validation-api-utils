@@ -32,6 +32,8 @@ Migrate from JUnit 4 to JUnit Jupiter 5:
 - Replace `junit:junit` dependency with `org.junit.jupiter:junit-jupiter`
 - Convert annotations: `@Before`→`@BeforeEach`, `@After`→`@AfterEach`, `@BeforeClass`→`@BeforeAll`, `@AfterClass`→`@AfterAll`, `@Ignore`→`@Disabled`, `@RunWith`→`@ExtendWith`
 - Convert assertions: `Assert.*`→`Assertions.*`, fix argument order (message first → message last)
+  - JUnit 4: `assertEquals("message", expected, actual)`
+  - JUnit Jupiter: `assertEquals(expected, actual, "message")`
 - Update imports from `org.junit.*` to `org.junit.jupiter.api.*`
 
 ### Pass 2: Apply JUnit 5 Best Practices
@@ -171,6 +173,12 @@ This is a Maven multi-module project:
 Current JUnit version: 5.11.0 (`org.junit.jupiter:junit-jupiter`)
 Target JUnit version: 6.x (`org.junit.jupiter:junit-jupiter`)
 
+## Prerequisites
+
+- Maven 3.9+
+- Java 25 (for running the migrated project)
+- Java 8+ (for running OpenRewrite)
+
 **Prerequisite**: Project must be on Java 17+ (JUnit 6 requirement) — project is on Java 25.
 
 ---
@@ -208,6 +216,52 @@ Target JUnit version: 6.x (`org.junit.jupiter:junit-jupiter`)
 - No `org.junit.` imports remain in test files
 
 ---
+
+## Commands to Run (All-in-One)
+
+```bash
+# Pass 1: JUnit 4 → JUnit 5 Migration (if JUnit 4 still present)
+./mvnw rewrite:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-testing-frameworks:latest.release -Drewrite.activeRecipes=org.openrewrite.java.testing.junit5.JUnit4ToJUnit5
+
+# Pass 2: JUnit 5 Best Practices
+./mvnw rewrite:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-testing-frameworks:latest.release -Drewrite.activeRecipes=org.openrewrite.java.testing.junit5.JUnit5BestPractices
+
+# Pass 3: JUnit 5 → JUnit 6 Migration
+./mvnw rewrite:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-migrate-java:3.42.1 -Drewrite.activeRecipes=org.openrewrite.java.migrate.junit5.JUnit5ToJUnit6
+
+# Pass 4: JUnit 6 Best Practices (manual review)
+
+# Pass 5: Verify
+./mvnw clean test
+```
+
+---
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Tests fail with `No tests found` | Ensure `junit-jupiter-engine` is in test runtime dependencies |
+| `@BeforeAll` not static | Make method static or use `@BeforeEach` |
+| Custom `@Rule` not migrated | Manually convert to `@RegisterExtension` or `@ExtendWith` |
+| Hamcrest matchers fail | Add `org.hamcrest:hamcrest:2.2` or migrate to AssertJ |
+| Surefire doesn't run tests | Update `maven-surefire-plugin` to 3.2.0+ |
+| Compilation errors after JUnit 6 migration | Check for changed method signatures or removed APIs in JUnit 6 |
+
+---
+
+## Manual Follow-up Checklist
+
+After automated migration, verify:
+
+- [ ] All tests pass: `./mvnw test`
+- [ ] No `org.junit.` imports remain in test files
+- [ ] `@BeforeAll`/`@AfterAll` methods are static
+- [ ] `@ExtendWith` added for any custom extensions
+- [ ] `junit-jupiter-engine` and `junit-jupiter-params` in test scope
+- [ ] `maven-surefire-plugin` version 3.2.0+
+- [ ] No deprecated JUnit 4/5 APIs used
+- [ ] JUnit version is 6.x in pom.xml
 
 ## Commands to Run (All-in-One)
 
